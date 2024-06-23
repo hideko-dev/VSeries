@@ -85,6 +85,10 @@ class VActionBar {
             }
         }
 
+        fun clear(player: Player) {
+            send(player, "")
+        }
+
     }
 
 }

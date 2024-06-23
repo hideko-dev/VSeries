@@ -4,6 +4,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 import xyz.xenondevs.particle.ParticleBuilder
 import xyz.xenondevs.particle.ParticleEffect
+import xyz.xenondevs.particle.data.ParticleData
 import java.awt.Color
 
 class VParticle(
@@ -12,9 +13,10 @@ class VParticle(
 
     private var particle: VParticleList? = null
     private var type: VParticleType = VParticleType.DOT
+    private var particleData: ParticleData? = null
     private var color: Color = Color.RED
     private var amount: Int = 10
-    private var delay: Double = 10.0
+    private var speed: Double = 1.0
 
     fun setParticle(particle: VParticleList): VParticle {
         this.particle = particle
@@ -36,8 +38,13 @@ class VParticle(
         return this
     }
 
-    fun setDelay(delay: Double): VParticle {
-        this.delay = delay
+    fun setSpeed(speed: Double): VParticle {
+        this.speed = speed
+        return this
+    }
+
+    fun setParticleData(particleData: ParticleData): VParticle {
+        this.particleData = particleData
         return this
     }
 
@@ -50,14 +57,15 @@ class VParticle(
         val amount = this.amount
         val color = this.color
         val particleEffect = ParticleEffect.valueOf(particle.toString())
-        val delay = this.delay.toFloat()
+        val speed = this.speed.toFloat()
 
         when (type) {
             VParticleType.DOT -> {
                 ParticleBuilder(particleEffect, location)
                     .setAmount(amount)
-                    .setSpeed(delay)
+                    .setSpeed(speed)
                     .setColor(color)
+                    .setParticleData(particleData)
                     .display()
             }
             VParticleType.BLOCK_OUTLINE -> {
@@ -88,7 +96,8 @@ class VParticle(
                                 ParticleBuilder(particleEffect, Location(Bukkit.getWorld("world"), x, y, z))
                                     .setAmount(amount)
                                     .setColor(color)
-                                    .setSpeed(10f)
+                                    .setSpeed(speed)
+                                    .setParticleData(particleData)
                                     .display()
                             }
                         }

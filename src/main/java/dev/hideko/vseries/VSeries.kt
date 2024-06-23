@@ -1,19 +1,35 @@
 package dev.hideko.vseries
 
-import com.avaje.ebean.EbeanServer
 import dev.hideko.vseries.base.VBase
+import dev.hideko.vseries.base.VClass
+import dev.hideko.vseries.message.VActionBar
+import dev.hideko.vseries.message.VTitle
 import dev.hideko.vseries.render.VParticle
-import dev.hideko.vseries.render.VParticleList
-import dev.hideko.vseries.render.VParticleType
-import org.bukkit.event.block.BlockBreakEvent
-import org.bukkit.plugin.java.JavaPlugin
-import xyz.xenondevs.particle.ParticleBuilder
-import xyz.xenondevs.particle.ParticleEffect
-import java.awt.Color
 
-class VSeries: JavaPlugin() {
+class VSeries {
 
-    override fun onEnable() {
+    companion object {
+
+        fun VBase(): VBase {
+            return VBase()
+        }
+
+        fun VClass(): VClass {
+            return VClass()
+        }
+
+        fun VTitle(): VTitle {
+            return VTitle()
+        }
+
+        fun VActionBar(): VActionBar {
+            return VActionBar()
+        }
+
+        fun VParticle(): VParticle {
+            return VParticle()
+        }
+
     }
 
 }
