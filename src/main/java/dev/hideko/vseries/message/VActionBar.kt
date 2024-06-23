@@ -46,19 +46,16 @@ class VActionBar {
                         val chatMessageTypes: Array<out Any>? = chatMessageTypeClass.getEnumConstants()
                         var chatMessageType: Any? = null
                         if (chatMessageTypes != null) {
-                            for (o in chatMessageTypes) {
+                            for (cmt in chatMessageTypes) {
                                 if (o.toString() == "GAME_INFO") {
-                                    chatMessageType = o
+                                    chatMessageType = cmt
                                 }
                             }
                         }
                         val chatCompontentText = chatComponentTextClass.getConstructor(
-                            *arrayOf<Class<*>>(
-                                String::class.java
-                            )
+                            *arrayOf<Class<*>>(String::class.java)
                         ).newInstance(message)
-                        packet =
-                            packetPlayOutChatClass.getConstructor(*arrayOf(iChatBaseComponentClass, chatMessageTypeClass))
+                        packet = packetPlayOutChatClass.getConstructor(*arrayOf(iChatBaseComponentClass, chatMessageTypeClass))
                                 .newInstance(chatCompontentText, chatMessageType)
                     } catch (e: ClassNotFoundException) {
                         val chatCompontentText = chatComponentTextClass.getConstructor(
@@ -76,7 +73,7 @@ class VActionBar {
                 }
                 val craftPlayerHandleMethod: Method = craftPlayerClass.getDeclaredMethod("getHandle")
                 val craftPlayerHandle: Any = craftPlayerHandleMethod.invoke(craftPlayer)
-                val playerConnectionField: Field = craftPlayerHandle.javaClass.getDeclaredField("playerConnection")
+                val playerConnectionField: Field = craftPlayerHandle.javaClass.getDeclaredField("playerConnectionV2")
                 val playerConnection: Any = playerConnectionField.get(craftPlayerHandle)
                 val sendPacketMethod: Method = playerConnection.javaClass.getDeclaredMethod("sendPacket", packetClass)
                 sendPacketMethod.invoke(playerConnection, packet)
