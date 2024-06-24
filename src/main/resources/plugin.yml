@@ -1,3 +1,0 @@
-name: VSeries
-version: '${project.version}'
-main: dev.hideko.vseries.VSeries

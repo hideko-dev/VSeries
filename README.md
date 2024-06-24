@@ -159,18 +159,20 @@ ItemCrack, FallingDust can be used.
 <b>Block Texture</b>
 
 ```kotlin
-VParticle(VParticleList.FALLING_DUST, location)
-        .setParticleData(BlockTexture(Material.STONE))
-        .display()
+VParticle(location)
+    .setParticle(VParticleList.BLOCK_FALLING)
+    .setParticleData(BlockTexture(Material.STONE))
+    .display()
 ```
 
 <b>Item Texture</b>
 
 ```kotlin
 val item = ItemStack(Material.DIAMOND_AXE)
-VParticle(VParticleList.ITEM_CRACK, location)
-        .setParticleData(ItemTexture(item))
-        .display()
+VParticle(location)
+    .setParticle(VParticleList.ITEM_CRACK)
+    .setParticleData(ItemTexture(item))
+    .display()
 ```
 
 ---
@@ -237,7 +239,7 @@ class TestPlugin : JavaPlugin() {
 
 # VClass
 
-**Class:** ```VBase```
+**Class:** ```VClass```
 
 **This is for advanced users.**
 
