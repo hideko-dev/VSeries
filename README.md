@@ -32,7 +32,7 @@
 
 # Download
 
-<p style="display: flex; align-items: center; gap: 5px">The latest version <img src="https://img.shields.io/github/v/release/ByteZ1337/ParticleLib"/> can be downloaded on the <a href="https://github.com/hideko-dev/VSeries/releases">releases</a> page.</p>
+<p style="display: flex; align-items: center; gap: 5px">The latest version <img src="https://img.shields.io/github/v/release/Hideko-Dev/VSeries"/> can be downloaded on the <a href="https://github.com/hideko-dev/VSeries/releases">releases</a> page.</p>
 
 ### Maven
 
