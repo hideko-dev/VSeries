@@ -58,6 +58,7 @@ class VParticle(
         val color = this.color
         val particleEffect = ParticleEffect.valueOf(particle.toString())
         val speed = this.speed.toFloat()
+        val dataParticle = this.particleData
 
         when (type) {
             VParticleType.DOT -> {
@@ -65,7 +66,7 @@ class VParticle(
                     .setAmount(amount)
                     .setSpeed(speed)
                     .setColor(color)
-                    .setParticleData(particleData)
+                    .setParticleData(dataParticle)
                     .display()
             }
             VParticleType.BLOCK_OUTLINE -> {
@@ -97,7 +98,7 @@ class VParticle(
                                     .setAmount(amount)
                                     .setColor(color)
                                     .setSpeed(speed)
-                                    .setParticleData(particleData)
+                                    .setParticleData(dataParticle)
                                     .display()
                             }
                         }

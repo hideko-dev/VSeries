@@ -1,7 +1,12 @@
 package dev.hideko.vseries.base
 
 import org.bukkit.Bukkit
+import org.bukkit.World
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
+import sun.reflect.misc.MethodUtil.getMethod
+import java.lang.reflect.Method
+
 
 class VClass {
 
